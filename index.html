@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABGMVM Visharad Pratham Kathak Mock Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f9f9f9; }
+        h1, h2 { color: #333; }
+        .paper { border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; background: white; }
+        .section { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        label { display: block; margin: 5px 0; }
+        input[type="radio"] { margin-right: 5px; }
+        textarea { width: 100%; height: 100px; margin-top: 5px; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+        button:hover { background: #45a049; }
+        #timer { font-size: 18px; color: red; font-weight: bold; }
+        .score { color: green; font-weight: bold; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Mock Test: ABGMVM Visharad Pratham Kathak Theory</h1>
+    <p>Simulates 2 papers (3 hrs each). Attempt as per instructions. Self-score objectives.</p>
+    
+    <div id="paper1" class="paper">
+        <h2>Paper I (3 Hours | 75 Marks)</h2>
+        <div id="timer1">Time: 03:00:00</div>
+        <button onclick="startTimer(1)">Start Paper 1</button>
+        <div id="content1" class="hidden">
+            <div class="section">
+                <h3>Q1: Fill in Blanks (Any 15/17, 15 Marks)</h3>
+                <p>Sample: Select correct option to fill.</p>
+                <!-- 15 sample questions; in real, expand to 17 -->
+                <div data-q="1. The first auditorium for dramas was made by _______."><label><input type="radio" name="q1_1" value="a"> A) Indra</label><label><input type="radio" name="q1_1" value="b"> B) Vishnu</label><label><input type="radio" name="q1_1" value="c"> C) Vishwakarma</label><label><input type="radio" name="q1_1" value="d"> D) Nandi (Correct: C)</label></div>
+                <div data-q="2. Awakening of bhavas leads to _______."><label><input type="radio" name="q1_2" value="a"> A) Romanch</label><label><input type="radio" name="q1_2" value="b"> B) Anubhav</label><label><input type="radio" name="q1_2" value="c"> C) Uddipan</label><label><input type="radio" name="q1_2" value="d"> D) Ashray (Correct: B)</label></div>
+                <!-- Add 13 more similar; abbreviated for brevity -->
+                <p>(Practice 13 more on Natyashastra terms...)</p>
+            </div>
+            <div class="section">
+                <h3>Q2: MCQs (Any 15/17, 15 Marks)</h3>
+                <div data-q="1. Elements from Vedas for Natyaveda?"><label><input type="radio" name="q2_1" value="a"> A) Text, Music, Abhinay, Rasa (Correct: A)</label><label><input type="radio" name="q2_1" value="b"> B) Laya, Gati...</label><label><input type="radio" name="q2_1" value="c"> C) Shringar...</label><label><input type="radio" name="q2_1" value="d"> D) Tandav...</label></div>
+                <!-- Add 14 more -->
+                <p>(Practice on rasas, gharanas...)</p>
+            </div>
+            <div class="section">
+                <h3>Q3: Short Notes (Any 3/5, 15 Marks)</h3>
+                <p>Write 150-200 words each.</p>
+                <textarea placeholder="1. Purpose of Natya in Indian context..."></textarea>
+                <textarea placeholder="2. Role of Sanchari bhavas..."></textarea>
+                <textarea placeholder="3. Abhisarika Nayika..."></textarea>
+                <textarea placeholder="4. Vibhava vs Anubhava..."></textarea>
+                <textarea placeholder="5. Evolution of Kathak..."></textarea>
+            </div>
+            <div class="section">
+                <h3>Q4: Notation (Any 3/5, 15 Marks)</h3>
+                <p>Write bols.</p>
+                <textarea placeholder="1. Kavitt in Jhaptaal: Dha..."></textarea>
+                <textarea placeholder="2. Dhamar Theka in Dugun..."></textarea>
+                <textarea placeholder="3. Paran in Teentaal..."></textarea>
+                <textarea placeholder="4. Chakradar Toda..."></textarea>
+                <textarea placeholder="5. Tihai in Ektaal..."></textarea>
+            </div>
+            <div class="section">
+                <h3>Q5: Detailed (Any 1/2, 15 Marks)</h3>
+                <p>300-400 words.</p>
+                <textarea placeholder="1. Shades of Vipralabdha Nayika in Kathak..."></textarea>
+                <textarea placeholder="2. Similarities between Dheerodaatt & Dheerlalit Nayak..."></textarea>
+            </div>
+            <button onclick="submitPaper(1)">Submit Paper 1</button>
+            <div id="score1"></div>
+        </div>
+    </div>
+    
+    <div id="paper2" class="paper">
+        <h2>Paper II (3 Hours | 75 Marks)</h2>
+        <div id="timer2">Time: 03:00:00</div>
+        <button onclick="startTimer(2)">Start Paper 2</button>
+        <div id="content2" class="hidden">
+            <!-- Similar structure; sample questions from Paper II -->
+            <div class="section">
+                <h3>Q1: Fill in Blanks (Any 15/17, 15 Marks)</h3>
+                <div data-q="1. External agents for bhav: _______."><label><input type="radio" name="p2q1_1" value="a"> A) Vibhav (Correct: A)</label>...</div>
+                <!-- Add more -->
+            </div>
+            <!-- Q2-Q5 similar, with Paper II samples like Gopikrishna history, Raas essay -->
+            <button onclick="submitPaper(2)">Submit Paper 2</button>
+            <div id="score2"></div>
+        </div>
+    </div>
+
+    <script>
+        let timers = {1: null, 2: null};
+        let timeLeft = {1: 10800, 2: 10800}; // 3 hours in seconds
+
+        function startTimer(paper) {
+            document.getElementById('content' + paper).classList.remove('hidden');
+            updateTimer(paper);
+            timers[paper] = setInterval(() => {
+                timeLeft[paper]--;
+                updateTimer(paper);
+                if (timeLeft[paper] <= 0) {
+                    clearInterval(timers[paper]);
+                    alert('Time Up! Auto-submit.');
+                    submitPaper(paper);
+                }
+            }, 1000);
+        }
+
+        function updateTimer(paper) {
+            let hrs = Math.floor(timeLeft[paper] / 3600);
+            let mins = Math.floor((timeLeft[paper] % 3600) / 60);
+            let secs = timeLeft[paper] % 60;
+            document.getElementById('timer' + paper).textContent = `Time: ${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function submitPaper(paper) {
+            clearInterval(timers[paper]);
+            // Simple objective scoring (expand selectors for full)
+            let correct = 0, total = 0;
+            // Example: Check Q1_1
+            if (document.querySelector('input[name="q1_1"]:checked')?.value === 'c') correct++;
+            total++;
+            // Add checks for all ~30 objectives per paper
+            let score = Math.round((correct / total) * 100);
+            document.getElementById('score' + paper).innerHTML = `<div class="score">Objective Score: ${correct}/${total} (${score}%) - Self-assess subjective!</div>`;
+            alert('Paper submitted. Review answers.');
+        }
+    </script>
+</body>
+</html>
