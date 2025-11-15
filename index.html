@@ -9,19 +9,23 @@
         h1, h2 { color: #333; }
         .paper { border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; background: white; }
         .section { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .question { margin: 10px 0; }
         label { display: block; margin: 5px 0; }
         input[type="radio"] { margin-right: 5px; }
-        textarea { width: 100%; height: 100px; margin-top: 5px; }
+        textarea { width: 100%; height: 150px; margin-top: 5px; }
         button { background: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; }
         button:hover { background: #45a049; }
-        #timer { font-size: 18px; color: red; font-weight: bold; }
+        #timer1, #timer2 { font-size: 18px; color: red; font-weight: bold; }
         .score { color: green; font-weight: bold; }
         .hidden { display: none; }
+        .feedback { margin-left: 10px; font-weight: bold; }
+        .correct { color: green; }
+        .incorrect { color: red; }
     </style>
 </head>
 <body>
-    <h1>Mock Test: ABGMVM Visharad Pratham Kathak Theory</h1>
-    <p>Simulates 2 papers (3 hrs each). Attempt as per instructions. Self-score objectives.</p>
+    <h1>Mock Test: ABGMVM Visharad Pratham Kathak Theory (Nov 2024 Papers)</h1>
+    <p>Two papers, 3 hours each. For Q1 & Q2: Attempt any 15/17 (system limits to 15 selections). Instant feedback on selection. For Q3 & Q4: Any 3/5. Q5: Any 1/2. Self-assess subjective.</p>
     
     <div id="paper1" class="paper">
         <h2>Paper I (3 Hours | 75 Marks)</h2>
@@ -29,47 +33,242 @@
         <button onclick="startTimer(1)">Start Paper 1</button>
         <div id="content1" class="hidden">
             <div class="section">
-                <h3>Q1: Fill in Blanks (Any 15/17, 15 Marks)</h3>
-                <p>Sample: Select correct option to fill.</p>
-                <!-- 15 sample questions; in real, expand to 17 -->
-                <div data-q="1. The first auditorium for dramas was made by _______."><label><input type="radio" name="q1_1" value="a"> A) Indra</label><label><input type="radio" name="q1_1" value="b"> B) Vishnu</label><label><input type="radio" name="q1_1" value="c"> C) Vishwakarma</label><label><input type="radio" name="q1_1" value="d"> D) Nandi (Correct: C)</label></div>
-                <div data-q="2. Awakening of bhavas leads to _______."><label><input type="radio" name="q1_2" value="a"> A) Romanch</label><label><input type="radio" name="q1_2" value="b"> B) Anubhav</label><label><input type="radio" name="q1_2" value="c"> C) Uddipan</label><label><input type="radio" name="q1_2" value="d"> D) Ashray (Correct: B)</label></div>
-                <!-- Add 13 more similar; abbreviated for brevity -->
-                <p>(Practice 13 more on Natyashastra terms...)</p>
+                <h3>Q1: Fill in the Blanks (Any 15/17, 15 Marks)</h3>
+                <div class="question" data-correct="c">1. The first auditorium for staging dramas was made by ............... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_1" value="a"> A) Indra</label>
+                    <label><input type="radio" name="p1q1_1" value="b"> B) Vishnu</label>
+                    <label><input type="radio" name="p1q1_1" value="c"> C) Vishwakarma</label>
+                    <label><input type="radio" name="p1q1_1" value="d"> D) Nandi</label>
+                </div>
+                <div class="question" data-correct="b">2. As a result of awakening of the bhavas, .................. are seen in a character in a drama. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_2" value="a"> A) Romanch</label>
+                    <label><input type="radio" name="p1q1_2" value="b"> B) Anubhav</label>
+                    <label><input type="radio" name="p1q1_2" value="c"> C) Uddipan</label>
+                    <label><input type="radio" name="p1q1_2" value="d"> D) Ashray</label>
+                </div>
+                <div class="question" data-correct="d">3. The display of 'Vishwaroop' to Arjun by Lord Krishna is an example of ................ rasa. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_3" value="a"> A) Veer</label>
+                    <label><input type="radio" name="p1q1_3" value="b"> B) Vatsalya</label>
+                    <label><input type="radio" name="p1q1_3" value="c"> C) Vibhats</label>
+                    <label><input type="radio" name="p1q1_3" value="d"> D) Adbhut</label>
+                </div>
+                <div class="question" data-correct="c">4. ..................... is an example of Dheer Prashant Nayak. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_4" value="a"> A) Shrikrishna</label>
+                    <label><input type="radio" name="p1q1_4" value="b"> B) Kalki</label>
+                    <label><input type="radio" name="p1q1_4" value="c"> C) Sudama</label>
+                    <label><input type="radio" name="p1q1_4" value="d"> D) Vaishik</label>
+                </div>
+                <div class="question" data-correct="a">5. ................... nayika is younger in age. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_5" value="a"> A) Mugdha</label>
+                    <label><input type="radio" name="p1q1_5" value="b"> B) Mudrita</label>
+                    <label><input type="radio" name="p1q1_5" value="c"> C) Janani</label>
+                    <label><input type="radio" name="p1q1_5" value="d"> D) Proudha</label>
+                </div>
+                <div class="question" data-correct="c">6. While preparing the NatyaVeda, Brahma Deva took Abhinay from .............. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_6" value="a"> A) Atharvaveda</label>
+                    <label><input type="radio" name="p1q1_6" value="b"> B) Samveda</label>
+                    <label><input type="radio" name="p1q1_6" value="c"> C) Yajurveda</label>
+                    <label><input type="radio" name="p1q1_6" value="d"> D) Rigveda</label>
+                </div>
+                <div class="question" data-correct="d">7. Atit and Anagat are the two types of a pran, named .............. amongst the ten prans of taal. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_7" value="a"> A) Uthaan</label>
+                    <label><input type="radio" name="p1q1_7" value="b"> B) Sthayi</label>
+                    <label><input type="radio" name="p1q1_7" value="c"> C) Marg</label>
+                    <label><input type="radio" name="p1q1_7" value="d"> D) Grah</label>
+                </div>
+                <div class="question" data-correct="b">8. A Bharatnatyam presentation consist of ................ parts or consecutive items in order. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_8" value="a"> A) Four</label>
+                    <label><input type="radio" name="p1q1_8" value="b"> B) Eight</label>
+                    <label><input type="radio" name="p1q1_8" value="c"> C) Six</label>
+                    <label><input type="radio" name="p1q1_8" value="d"> D) Eleven</label>
+                </div>
+                <div class="question" data-correct="b">9. A dancer poses with her hand in a particular mudra over her ............ to show zoomar ki gat. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_9" value="a"> A) Ears</label>
+                    <label><input type="radio" name="p1q1_9" value="b"> B) waist</label>
+                    <label><input type="radio" name="p1q1_9" value="c"> C) Nose</label>
+                    <label><input type="radio" name="p1q1_9" value="d"> D) Forehead</label>
+                </div>
+                <div class="question" data-correct="a">10. There are .............. beats in taal Dhamaar. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_10" value="a"> A) 14</label>
+                    <label><input type="radio" name="p1q1_10" value="b"> B) 7</label>
+                    <label><input type="radio" name="p1q1_10" value="c"> C) 9</label>
+                    <label><input type="radio" name="p1q1_10" value="d"> D) 12</label>
+                </div>
+                <div class="question" data-correct="d">11. According to the Natyopatti story, Bharat created the Bharati Vritti from .............. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_11" value="a"> A) Samaveda</label>
+                    <label><input type="radio" name="p1q1_11" value="b"> B) AtharvaVeda</label>
+                    <label><input type="radio" name="p1q1_11" value="c"> C) Yajurveda</label>
+                    <label><input type="radio" name="p1q1_11" value="d"> D) Rigveda</label>
+                </div>
+                <div class="question" data-correct="c">12. Basic posture of Bharatnatyam dance style is called .......... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_12" value="a"> A) Tribhangi</label>
+                    <label><input type="radio" name="p1q1_12" value="b"> B) Muzumandi</label>
+                    <label><input type="radio" name="p1q1_12" value="c"> C) Araimandi</label>
+                    <label><input type="radio" name="p1q1_12" value="d"> D) Samapada</label>
+                </div>
+                <div class="question" data-correct="d">13. According to Abhinay Darpan, greeva bhed are of ............. types. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_13" value="a"> A) Eight</label>
+                    <label><input type="radio" name="p1q1_13" value="b"> B) Seven</label>
+                    <label><input type="radio" name="p1q1_13" value="c"> C) Five</label>
+                    <label><input type="radio" name="p1q1_13" value="d"> D) Four</label>
+                </div>
+                <div class="question" data-correct="b">14. A Goddess depicted with a Veena and a book in hand, is called as ................ <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_14" value="a"> A) Lakshmi</label>
+                    <label><input type="radio" name="p1q1_14" value="b"> B) Saraswati</label>
+                    <label><input type="radio" name="p1q1_14" value="c"> C) Durga</label>
+                    <label><input type="radio" name="p1q1_14" value="d"> D) Parvati</label>
+                </div>
+                <div class="question" data-correct="d">15. Shuklabhisarika wears ................ clothes when she goes to meet her lover. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_15" value="a"> A) Yellow</label>
+                    <label><input type="radio" name="p1q1_15" value="b"> B) Blue</label>
+                    <label><input type="radio" name="p1q1_15" value="c"> C) Black</label>
+                    <label><input type="radio" name="p1q1_15" value="d"> D) White</label>
+                </div>
+                <div class="question" data-correct="d">16. Dasiattam was later called as .............. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_16" value="a"> A) Mohiniattam</label>
+                    <label><input type="radio" name="p1q1_16" value="b"> B) Kuchipudi</label>
+                    <label><input type="radio" name="p1q1_16" value="c"> C) Varnam</label>
+                    <label><input type="radio" name="p1q1_16" value="d"> D) Bharatnatyam</label>
+                </div>
+                <div class="question" data-correct="d">17. Zaptaal is an example of ............. jati taal. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q1_17" value="a"> A) Mishra</label>
+                    <label><input type="radio" name="p1q1_17" value="b"> B) Sankirna</label>
+                    <label><input type="radio" name="p1q1_17" value="c"> C) Visham</label>
+                    <label><input type="radio" name="p1q1_17" value="d"> D) Khand</label>
+                </div>
             </div>
             <div class="section">
-                <h3>Q2: MCQs (Any 15/17, 15 Marks)</h3>
-                <div data-q="1. Elements from Vedas for Natyaveda?"><label><input type="radio" name="q2_1" value="a"> A) Text, Music, Abhinay, Rasa (Correct: A)</label><label><input type="radio" name="q2_1" value="b"> B) Laya, Gati...</label><label><input type="radio" name="q2_1" value="c"> C) Shringar...</label><label><input type="radio" name="q2_1" value="d"> D) Tandav...</label></div>
-                <!-- Add 14 more -->
-                <p>(Practice on rasas, gharanas...)</p>
+                <h3>Q2: Multiple Choice Questions (Any 15/17, 15 Marks)</h3>
+                <div class="question" data-correct="a">1. What elements were taken from the different Vedas to create 'Natyaveda' ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_1" value="a"> A) Text, Music, Abhinay, Rasa</label>
+                    <label><input type="radio" name="p1q2_1" value="b"> B) Laya, Gati, Bhav, Rasa</label>
+                    <label><input type="radio" name="p1q2_1" value="c"> C) Shringar, Taal, singing, playing instruments</label>
+                    <label><input type="radio" name="p1q2_1" value="d"> D) Tandav, Lasya, Pujan, Gayan</label>
+                </div>
+                <div class="question" data-correct="c">2. What are the initial three types of hasya or laughter ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_2" value="a"> A) Atihasit, Andolit, Aphasit</label>
+                    <label><input type="radio" name="p1q2_2" value="b"> B) Hasit, Kutsit, Rechit</label>
+                    <label><input type="radio" name="p1q2_2" value="c"> C) Smit, Hasit, Vihasit</label>
+                    <label><input type="radio" name="p1q2_2" value="d"> D) Susmit, Avalokit, Atihasit</label>
+                </div>
+                <div class="question" data-correct="c">3. ............. is the most interesting part of Kathakali dance in which a specific performance of "Tandava" is done. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_3" value="a"> A) Thodayam</label>
+                    <label><input type="radio" name="p1q2_3" value="b"> B) Batu-Nritya</label>
+                    <label><input type="radio" name="p1q2_3" value="c"> C) Thironattam</label>
+                    <label><input type="radio" name="p1q2_3" value="d"> D) Yakshagaana</label>
+                </div>
+                <div class="question" data-correct="b">4. If a Paran starts and ends in drut laya and the bols (Syllables) in the middle part are in Madhya laya, the yati should be called as .......... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_4" value="a"> A) Gopuchacha</label>
+                    <label><input type="radio" name="p1q2_4" value="b"> B) Mridanga</label>
+                    <label><input type="radio" name="p1q2_4" value="c"> C) Pakhawaj</label>
+                    <label><input type="radio" name="p1q2_4" value="d"> D) Madhyama</label>
+                </div>
+                <div class="question" data-correct="b">5. Guru Vipin Singh and Guru Krishna Kumar are the famous exponents of which dance styles consecutively ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_5" value="a"> A) Bharatnatyam and Odissi</label>
+                    <label><input type="radio" name="p1q2_5" value="b"> B) Manipuri and Kathakali</label>
+                    <label><input type="radio" name="p1q2_5" value="c"> C) Kathak and Kathakali</label>
+                    <label><input type="radio" name="p1q2_5" value="d"> D) Manipuri and Kathak</label>
+                </div>
+                <div class="question" data-correct="b">6. ........... hasta mudra is used to denote 'taking meals, an ant-hill'. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_6" value="a"> A) Katakamukha</label>
+                    <label><input type="radio" name="p1q2_6" value="b"> B) Padmakosha</label>
+                    <label><input type="radio" name="p1q2_6" value="c"> C) Alapadma</label>
+                    <label><input type="radio" name="p1q2_6" value="d"> D) Kangula</label>
+                </div>
+                <div class="question" data-correct="c">7. Matsya Avataar killed ............... asur and returned the Vedas to Brahmadeva. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_7" value="a"> A) Sugreeva</label>
+                    <label><input type="radio" name="p1q2_7" value="b"> B) Hiranyaksha</label>
+                    <label><input type="radio" name="p1q2_7" value="c"> C) Hayagreeva</label>
+                    <label><input type="radio" name="p1q2_7" value="d"> D) Narakasura</label>
+                </div>
+                <div class="question" data-correct="c">8. 'Calm mental activity, eyes shedding tears of joy, happy and contented face' are the Anubhaav of ................... rasa. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_8" value="a"> A) Adbhut</label>
+                    <label><input type="radio" name="p1q2_8" value="b"> B) Veer</label>
+                    <label><input type="radio" name="p1q2_8" value="c"> C) Shant</label>
+                    <label><input type="radio" name="p1q2_8" value="d"> D) Haasya</label>
+                </div>
+                <div class="question" data-correct="b">9. Find a well known Guru-Shishya Pair from the choices given below :- <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_9" value="a"> A) Thakur Prasadji and Wajid Ali shah</label>
+                    <label><input type="radio" name="p1q2_9" value="b"> B) Bhavanishankar ki and Gopi Krishna</label>
+                    <label><input type="radio" name="p1q2_9" value="c"> C) Rajendra Gangani ji and Shaswati Sen</label>
+                    <label><input type="radio" name="p1q2_9" value="d"> D) Pandit Durgalal and Sanyukta Panigrahi</label>
+                </div>
+                <div class="question" data-correct="c">10. Which set of three names from below are mentioned in the sthayi bhavas of Navrasa. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_10" value="a"> A) Bolbhav, Nayan bhav, Arth bhav</label>
+                    <label><input type="radio" name="p1q2_10" value="b"> B) Alamban, Uddipan, Samapan</label>
+                    <label><input type="radio" name="p1q2_10" value="c"> C) Jugupsa, Utsah, Rati</label>
+                    <label><input type="radio" name="p1q2_10" value="d"> D) Nirved, Haas, Irshya</label>
+                </div>
+                <div class="question" data-correct="b">11. Kshan,Luv,Kashtha, Nimesh etc are the measures of what ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_11" value="a"> A) Ang</label>
+                    <label><input type="radio" name="p1q2_11" value="b"> B) Kaal</label>
+                    <label><input type="radio" name="p1q2_11" value="c"> C) Yati</label>
+                    <label><input type="radio" name="p1q2_11" value="d"> D) Kala</label>
+                </div>
+                <div class="question" data-correct="b">12. Write the names of two types of Shringar ras. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_12" value="a"> A) Arambh-Anant</label>
+                    <label><input type="radio" name="p1q2_12" value="b"> B) Sanyog-Vipralambh</label>
+                    <label><input type="radio" name="p1q2_12" value="c"> C) Milan-Pravas</label>
+                    <label><input type="radio" name="p1q2_12" value="d"> D) Dwet-Viyog</label>
+                </div>
+                <div class="question" data-correct="a">13. Which one of these is a father-son pair. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_13" value="a"> A) Hiranyakashyapu-Prahlad</label>
+                    <label><input type="radio" name="p1q2_13" value="b"> B) Yudhishthir-Arjun</label>
+                    <label><input type="radio" name="p1q2_13" value="c"> C) Hiranyaksha-Hiranyakshyapu</label>
+                    <label><input type="radio" name="p1q2_13" value="d"> D) Vishwakarma-Vaman</label>
+                </div>
+                <div class="question" data-correct="d">14. Which classical dance style has this special rhythmic and musical presentation named 'tarangam', which is performed standing on a brass plate ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_14" value="a"> A) Mohiniattam</label>
+                    <label><input type="radio" name="p1q2_14" value="b"> B) Odissi</label>
+                    <label><input type="radio" name="p1q2_14" value="c"> C) Bharatnatyam</label>
+                    <label><input type="radio" name="p1q2_14" value="d"> D) Kuchipudi</label>
+                </div>
+                <div class="question" data-correct="c">15. What is the Manipuri Classical singing style called ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_15" value="a"> A) Carnatic</label>
+                    <label><input type="radio" name="p1q2_15" value="b"> B) Hindustani</label>
+                    <label><input type="radio" name="p1q2_15" value="c"> C) Sopan</label>
+                    <label><input type="radio" name="p1q2_15" value="d"> D) Nat</label>
+                </div>
+                <div class="question" data-correct="c">16. In what context do we use words as 'Vinamrata' (Politeness) and sadhana (hard work for a goal). <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_16" value="a"> A) Nayak-Nayika Bhed</label>
+                    <label><input type="radio" name="p1q2_16" value="b"> B) Dashpran of Taal</label>
+                    <label><input type="radio" name="p1q2_16" value="c"> C) Guru-Shishya Parampara</label>
+                    <label><input type="radio" name="p1q2_16" value="d"> D) Natyotpatti</label>
+                </div>
+                <div class="question" data-correct="d">17. The third avatar in God Vishnu's Dashavttar's ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p1q2_17" value="a"> A) Koorma</label>
+                    <label><input type="radio" name="p1q2_17" value="b"> B) Vaman</label>
+                    <label><input type="radio" name="p1q2_17" value="c"> C) Parashuram</label>
+                    <label><input type="radio" name="p1q2_17" value="d"> D) Varaha</label>
+                </div>
             </div>
             <div class="section">
                 <h3>Q3: Short Notes (Any 3/5, 15 Marks)</h3>
                 <p>Write 150-200 words each.</p>
-                <textarea placeholder="1. Purpose of Natya in Indian context..."></textarea>
-                <textarea placeholder="2. Role of Sanchari bhavas..."></textarea>
-                <textarea placeholder="3. Abhisarika Nayika..."></textarea>
-                <textarea placeholder="4. Vibhava vs Anubhava..."></textarea>
-                <textarea placeholder="5. Evolution of Kathak..."></textarea>
+                <textarea placeholder="1. The purpose of 'Natya' in Indian context."></textarea>
+                <textarea placeholder="2. The role of Sanchari bhavas in creation of a Rasa."></textarea>
+                <textarea placeholder="3. Brief description of Abhisarika and Khandita Nayikas."></textarea>
+                <textarea placeholder="4. The story of Narasimha Avataar and its mudra according to Abhinaydarpan."></textarea>
+                <textarea placeholder="5. The costume and jewellery generally worn by a female dancer for a Kathak performance."></textarea>
             </div>
             <div class="section">
-                <h3>Q4: Notation (Any 3/5, 15 Marks)</h3>
-                <p>Write bols.</p>
-                <textarea placeholder="1. Kavitt in Jhaptaal: Dha..."></textarea>
-                <textarea placeholder="2. Dhamar Theka in Dugun..."></textarea>
-                <textarea placeholder="3. Paran in Teentaal..."></textarea>
-                <textarea placeholder="4. Chakradar Toda..."></textarea>
-                <textarea placeholder="5. Tihai in Ektaal..."></textarea>
+                <h3>Q4: Notation Writing (Any 3/5, 15 Marks)</h3>
+                <p>Write bols in standard notation.</p>
+                <textarea placeholder="1. A Kavitt in Zaptaal"></textarea>
+                <textarea placeholder="2. Dhamaar Theka in Dugun"></textarea>
+                <textarea placeholder="3. A Parmelu in Teentaal"></textarea>
+                <textarea placeholder="4. A Chakradaar tihai in Teentaal"></textarea>
+                <textarea placeholder="5. A Chakradaar Paran in Zaptaal"></textarea>
             </div>
             <div class="section">
-                <h3>Q5: Detailed (Any 1/2, 15 Marks)</h3>
+                <h3>Q5: Detailed Answer (Any 1/2, 15 Marks)</h3>
                 <p>300-400 words.</p>
-                <textarea placeholder="1. Shades of Vipralabdha Nayika in Kathak..."></textarea>
-                <textarea placeholder="2. Similarities between Dheerodaatt & Dheerlalit Nayak..."></textarea>
+                <textarea placeholder="1. What are the different shades of emotions experienced by Vipralabdha Nayika ? In which ways can they be expressed through Kathak dance ?"></textarea>
+                <textarea placeholder="2. What Virtues are similar in a Dheerodaatt and Dheerlalit nayak ? And what virtues are different between the two ? Explain with examples."></textarea>
             </div>
-            <button onclick="submitPaper(1)">Submit Paper 1</button>
+            <button onclick="submitPaper(1)">Submit Paper 1 (For Objective Score)</button>
             <div id="score1"></div>
-        </div>
+            </div>
     </div>
     
     <div id="paper2" class="paper">
@@ -77,21 +276,248 @@
         <div id="timer2">Time: 03:00:00</div>
         <button onclick="startTimer(2)">Start Paper 2</button>
         <div id="content2" class="hidden">
-            <!-- Similar structure; sample questions from Paper II -->
             <div class="section">
-                <h3>Q1: Fill in Blanks (Any 15/17, 15 Marks)</h3>
-                <div data-q="1. External agents for bhav: _______."><label><input type="radio" name="p2q1_1" value="a"> A) Vibhav (Correct: A)</label>...</div>
-                <!-- Add more -->
+                <h3>Q1: Fill in the Blanks (Any 15/17, 15 Marks)</h3>
+                <div class="question" data-correct="a">1. The external agents which support the awakening of a particular bhav, are called as ............... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_1" value="a"> A) Vibhav</label>
+                    <label><input type="radio" name="p2q1_1" value="b"> B) Sanchari Bhav</label>
+                    <label><input type="radio" name="p2q1_1" value="c"> C) Audience</label>
+                    <label><input type="radio" name="p2q1_1" value="d"> D) Vismay</label>
+                </div>
+                <div class="question" data-correct="c">2. A gat showing different ways of draping a ghunghat or veil, is a type of ................ <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_2" value="a"> A) Gat Bhav</label>
+                    <label><input type="radio" name="p2q1_2" value="b"> B) Bandish Gat</label>
+                    <label><input type="radio" name="p2q1_2" value="c"> C) Gat Nikas</label>
+                    <label><input type="radio" name="p2q1_2" value="d"> D) Gat Palta</label>
+                </div>
+                <div class="question" data-correct="d">3. The standing pose of Krishna while playing flute, is mostly in ................. bhangima. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_3" value="a"> A) Sambhang</label>
+                    <label><input type="radio" name="p2q1_3" value="b"> B) Abhang</label>
+                    <label><input type="radio" name="p2q1_3" value="c"> C) Atibhang</label>
+                    <label><input type="radio" name="p2q1_3" value="d"> D) Tribhang</label>
+                </div>
+                <div class="question" data-correct="d">4. A song with syllables like Nom,Tom,derena etc. is called as ............. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_4" value="a"> A) Trivat</label>
+                    <label><input type="radio" name="p2q1_4" value="b"> B) Tilvat</label>
+                    <label><input type="radio" name="p2q1_4" value="c"> C) Chaturang</label>
+                    <label><input type="radio" name="p2q1_4" value="d"> D) Tarana</label>
+                </div>
+                <div class="question" data-correct="b">5. A song describing rains,clouds,separation of lovers etc., can be a song called .................. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_5" value="a"> A) Chaiti</label>
+                    <label><input type="radio" name="p2q1_5" value="b"> B) Meghmalhar</label>
+                    <label><input type="radio" name="p2q1_5" value="c"> C) Trivat</label>
+                    <label><input type="radio" name="p2q1_5" value="d"> D) Kajari</label>
+                </div>
+                <div class="question" data-correct="b">6. The book 'Musammi-ba-banni' written by Nawab Wajid Ali shah mentions ............... type of Gats. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_6" value="a"> A) Eighteen</label>
+                    <label><input type="radio" name="p2q1_6" value="b"> B) Twenty One</label>
+                    <label><input type="radio" name="p2q1_6" value="c"> C) Fifteen</label>
+                    <label><input type="radio" name="p2q1_6" value="d"> D) Twenty Five</label>
+                </div>
+                <div class="question" data-correct="d">7. Maharaj Chakradhar Singh was the king of ................ <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_7" value="a"> A) Itawa</label>
+                    <label><input type="radio" name="p2q1_7" value="b"> B) Aligarh</label>
+                    <label><input type="radio" name="p2q1_7" value="c"> C) Khairagarh</label>
+                    <label><input type="radio" name="p2q1_7" value="d"> D) Raigarh</label>
+                </div>
+                <div class="question" data-correct="c">8. Two books important to kathak, that are written by Nawab Wajid Ali Shah are Najo and ............... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_8" value="a"> A) Ginni</label>
+                    <label><input type="radio" name="p2q1_8" value="b"> B) Sajani</label>
+                    <label><input type="radio" name="p2q1_8" value="c"> C) Banni</label>
+                    <label><input type="radio" name="p2q1_8" value="d"> D) Ishrat</label>
+                </div>
+                <div class="question" data-correct="b">9. A song having four parts named sthayi, Antara, Sanchari and Abhog in sequence, is called as ............... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_9" value="a"> A) Tarana</label>
+                    <label><input type="radio" name="p2q1_9" value="b"> B) Dhrupad</label>
+                    <label><input type="radio" name="p2q1_9" value="c"> C) Bada Khyal</label>
+                    <label><input type="radio" name="p2q1_9" value="d"> D) Ashtapadi</label>
+                </div>
+                <div class="question" data-correct="d">10. Another taal, having the same number of beats as Ektaal, is called as ............. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_10" value="a"> A) Dhamaar</label>
+                    <label><input type="radio" name="p2q1_10" value="b"> B) Deepchandi</label>
+                    <label><input type="radio" name="p2q1_10" value="c"> C) Sool taal</label>
+                    <label><input type="radio" name="p2q1_10" value="d"> D) Chautaal</label>
+                </div>
+                <div class="question" data-correct="a">11. Pandit Durgalal was the famous Kathak exponent of ............... gharana. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_11" value="a"> A) Jaipur</label>
+                    <label><input type="radio" name="p2q1_11" value="b"> B) Lucknow</label>
+                    <label><input type="radio" name="p2q1_11" value="c"> C) Raigad</label>
+                    <label><input type="radio" name="p2q1_11" value="d"> D) Banaras</label>
+                </div>
+                <div class="question" data-correct="c">12. Devi Saraswati is the Godess of ............. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_12" value="a"> A) Wealth</label>
+                    <label><input type="radio" name="p2q1_12" value="b"> B) Victory</label>
+                    <label><input type="radio" name="p2q1_12" value="c"> C) Knowledge</label>
+                    <label><input type="radio" name="p2q1_12" value="d"> D) Pardoning</label>
+                </div>
+                <div class="question" data-correct="c">13. According to Abhinaydarpan, Grivabhed are of .............. types. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_13" value="a"> A) 9</label>
+                    <label><input type="radio" name="p2q1_13" value="b"> B) 23</label>
+                    <label><input type="radio" name="p2q1_13" value="c"> C) 4</label>
+                    <label><input type="radio" name="p2q1_13" value="d"> D) 10</label>
+                </div>
+                <div class="question" data-correct="b">14. To say the bols of a toda while showing the taal by hands, is known as ............... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_14" value="a"> A) Gayan</label>
+                    <label><input type="radio" name="p2q1_14" value="b"> B) Padhant</label>
+                    <label><input type="radio" name="p2q1_14" value="c"> C) Pathya</label>
+                    <label><input type="radio" name="p2q1_14" value="d"> D) Vaadan</label>
+                </div>
+                <div class="question" data-correct="c">15. According to Abhinaydarpan, what part of the body is used to show 'Utkshep' ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_15" value="a"> A) Neck</label>
+                    <label><input type="radio" name="p2q1_15" value="b"> B) Nose</label>
+                    <label><input type="radio" name="p2q1_15" value="c"> C) Eyebrows</label>
+                    <label><input type="radio" name="p2q1_15" value="d"> D) Shoulders</label>
+                </div>
+                <div class="question" data-correct="b">16. Each section (Palla) of the tihai in a kamali-chakradaar paran, has ............... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_16" value="a"> A) Different syllables</label>
+                    <label><input type="radio" name="p2q1_16" value="b"> B) Three 'Dha'</label>
+                    <label><input type="radio" name="p2q1_16" value="c"> C) Dha ge ti ta</label>
+                    <label><input type="radio" name="p2q1_16" value="d"> D) Ten 'Dha'</label>
+                </div>
+                <div class="question" data-correct="a">17. 'Niratat Dhang', a creation of Maharaj Bindadin , is a ................. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q1_17" value="a"> A) Thumari</label>
+                    <label><input type="radio" name="p2q1_17" value="b"> B) Bhajan</label>
+                    <label><input type="radio" name="p2q1_17" value="c"> C) Trivat</label>
+                    <label><input type="radio" name="p2q1_17" value="d"> D) Ashtapadi</label>
+                </div>
             </div>
-            <!-- Q2-Q5 similar, with Paper II samples like Gopikrishna history, Raas essay -->
-            <button onclick="submitPaper(2)">Submit Paper 2</button>
+            <div class="section">
+                <h3>Q2: Multiple Choice Questions (Any 15/17, 15 Marks)</h3>
+                <div class="question" data-correct="b">1. 22 August 1933 is the birth date of .............. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_1" value="a"> A) Dr Sitaradevi</label>
+                    <label><input type="radio" name="p2q2_1" value="b"> B) Nataraj Gopikrishna</label>
+                    <label><input type="radio" name="p2q2_1" value="c"> C) Pt Durgalal</label>
+                    <label><input type="radio" name="p2q2_1" value="d"> D) Pt Kundanlal Gangani</label>
+                </div>
+                <div class="question" data-correct="a">2. The Palta taken at the beginning of Gat can be explained with which pair of the following terms ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_2" value="a"> A) Laag-Daat</label>
+                    <label><input type="radio" name="p2q2_2" value="b"> B) Dupalli-tipalli</label>
+                    <label><input type="radio" name="p2q2_2" value="c"> C) Anulom-Pratilom</label>
+                    <label><input type="radio" name="p2q2_2" value="d"> D) Ched-Chad</label>
+                </div>
+                <div class="question" data-correct="c">3. Which two necessary have the display of Laya-Jatis ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_3" value="a"> A) Tipalli,Dhrupad</label>
+                    <label><input type="radio" name="p2q2_3" value="b"> B) Tarana,Tipalli</label>
+                    <label><input type="radio" name="p2q2_3" value="c"> C) Chaturang,Tipalli</label>
+                    <label><input type="radio" name="p2q2_3" value="d"> D) Saragam,Tipalli</label>
+                </div>
+                <div class="question" data-correct="d">4. Which two Asamyukt mudras are used together to make 'Shiv Ling' mudra in Samyukt hastmudras ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_4" value="a"> A) Mushti & Pataka</label>
+                    <label><input type="radio" name="p2q2_4" value="b"> B) Sarpasheersh & Pataka</label>
+                    <label><input type="radio" name="p2q2_4" value="c"> C) Ardhachandra & Aral</label>
+                    <label><input type="radio" name="p2q2_4" value="d"> D) Shikhar & Pataka</label>
+                </div>
+                <div class="question" data-correct="c">5. The 1 1/4, 1 1/2 and 1 3/4 tempos of Tritaal are shown in which of the sequences named below ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_5" value="a"> A) Kuvaadi, Aadi, Biaadi</label>
+                    <label><input type="radio" name="p2q2_5" value="b"> B) Aadi, Viaadi, Kuvaadi</label>
+                    <label><input type="radio" name="p2q2_5" value="c"> C) Aadi, Kuvaadi, Viaadi</label>
+                    <label><input type="radio" name="p2q2_5" value="d"> D) Viaadi,Kuvaadi,Aadi</label>
+                </div>
+                <div class="question" data-correct="c">6. .............. was the Guru of Pt Kundanlal Gangani ji. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_6" value="a"> A) Pt Acchhan Maharaj</label>
+                    <label><input type="radio" name="p2q2_6" value="b"> B) Pt Narayan Prasad</label>
+                    <label><input type="radio" name="p2q2_6" value="c"> C) Pt Sunder Prasad</label>
+                    <label><input type="radio" name="p2q2_6" value="d"> D) Pt Lacchhu Maharaj</label>
+                </div>
+                <div class="question" data-correct="c">7. ............... granth related to Kathak dance is written by Maharaj Chakradhar Singh. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_7" value="a"> A) Lakshya Sangeetam</label>
+                    <label><input type="radio" name="p2q2_7" value="b"> B) Kathak Manjiri</label>
+                    <label><input type="radio" name="p2q2_7" value="c"> C) Kathak Darshan</label>
+                    <label><input type="radio" name="p2q2_7" value="d"> D) Murajvarna Pushpakar</label>
+                </div>
+                <div class="question" data-correct="a">8. What Jati is shown by the syllables 'Dha tra ka Dhi ki t'. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_8" value="a"> A) Tishra</label>
+                    <label><input type="radio" name="p2q2_8" value="b"> B) Mishra</label>
+                    <label><input type="radio" name="p2q2_8" value="c"> C) Chatushra</label>
+                    <label><input type="radio" name="p2q2_8" value="d"> D) Sankirna</label>
+                </div>
+                <div class="question" data-correct="c">9. The last word of shloka 'Aangikam Bhuvanam Yasya' from Abhinaydarpan, is 'Tannumah Satvikam ........... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_9" value="a"> A) Nateshwar</label>
+                    <label><input type="radio" name="p2q2_9" value="b"> B) Rudram</label>
+                    <label><input type="radio" name="p2q2_9" value="c"> C) Shivam</label>
+                    <label><input type="radio" name="p2q2_9" value="d"> D) Devam</label>
+                </div>
+                <div class="question" data-correct="c">10. ............. is the Sanchari Bhaav of Bibhatsa Rasa. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_10" value="a"> A) Harsh</label>
+                    <label><input type="radio" name="p2q2_10" value="b"> B) Shanka</label>
+                    <label><input type="radio" name="p2q2_10" value="c"> C) Apasmar</label>
+                    <label><input type="radio" name="p2q2_10" value="d"> D) smruti</label>
+                </div>
+                <div class="question" data-correct="c">11. In a war field, blowing the conch, using arrows and swords etc. creates which rasa ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_11" value="a"> A) Adbhut</label>
+                    <label><input type="radio" name="p2q2_11" value="b"> B) Bhayanak</label>
+                    <label><input type="radio" name="p2q2_11" value="c"> C) Veer</label>
+                    <label><input type="radio" name="p2q2_11" value="d"> D) Karun</label>
+                </div>
+                <div class="question" data-correct="b">12. Name the two rasas from below, which are rarely shown in traditional kathak. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_12" value="a"> A) Shringar, Karun</label>
+                    <label><input type="radio" name="p2q2_12" value="b"> B) Bhayanak, adbhut</label>
+                    <label><input type="radio" name="p2q2_12" value="c"> C) Veer, Shant</label>
+                    <label><input type="radio" name="p2q2_12" value="d"> D) Vibhatsa, Hasya</label>
+                </div>
+                <div class="question" data-correct="b">13. Chaiti songs typically have the name of .............. <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_13" value="a"> A) Shiv</label>
+                    <label><input type="radio" name="p2q2_13" value="b"> B) Rama</label>
+                    <label><input type="radio" name="p2q2_13" value="c"> C) Krushna</label>
+                    <label><input type="radio" name="p2q2_13" value="d"> D) Thakurji</label>
+                </div>
+                <div class="question" data-correct="c">14. Which classical dance style, apart from kathak, is considered to be directly related to 'Raas'? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_14" value="a"> A) Kathakali</label>
+                    <label><input type="radio" name="p2q2_14" value="b"> B) Odissi</label>
+                    <label><input type="radio" name="p2q2_14" value="c"> C) Manipuri</label>
+                    <label><input type="radio" name="p2q2_14" value="d"> D) Bharatnatyam</label>
+                </div>
+                <div class="question" data-correct="b">15. Where has 'Raas' originated from ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_15" value="a"> A) Mathura</label>
+                    <label><input type="radio" name="p2q2_15" value="b"> B) Brijbhoomi</label>
+                    <label><input type="radio" name="p2q2_15" value="c"> C) Dwarka</label>
+                    <label><input type="radio" name="p2q2_15" value="d"> D) Swargalok</label>
+                </div>
+                <div class="question" data-correct="a">16. The speciality of interpreting and enacting one single line of a thumari in varied abhinaya, is called as .................... <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_16" value="a"> A) Bol bhav</label>
+                    <label><input type="radio" name="p2q2_16" value="b"> B) Sanchari bhav</label>
+                    <label><input type="radio" name="p2q2_16" value="c"> C) Nritya bhav</label>
+                    <label><input type="radio" name="p2q2_16" value="d"> D) Sthayi bhav</label>
+                </div>
+                <div class="question" data-correct="d">17. 'Vidushak' (Court jester) is generally the alamban vibhav of which rasa ? <span class="feedback"></span><br>
+                    <label><input type="radio" name="p2q2_17" value="a"> A) Adbhut</label>
+                    <label><input type="radio" name="p2q2_17" value="b"> B) Shant</label>
+                    <label><input type="radio" name="p2q2_17" value="c"> C) Raudra</label>
+                    <label><input type="radio" name="p2q2_17" value="d"> D) Hasya</label>
+                </div>
+            </div>
+            <div class="section">
+                <h3>Q3: Short Notes (Any 3/5, 15 Marks)</h3>
+                <p>Write 150-200 words each.</p>
+                <textarea placeholder="1. Explain 'Rasnishpatti' Take a rasa of your choice and explain how it is generated by different factors or components related to it."></textarea>
+                <textarea placeholder="2. Define 'Kavitta' and 'Bhraman' and describe them in brief."></textarea>
+                <textarea placeholder="3. Write a short note on 'Ashtapadi'."></textarea>
+                <textarea placeholder="4. The contribution of Nawab Wajid Ali Shah in the history and development of Kathak."></textarea>
+                <textarea placeholder="5. The contribution of Guru Kundanlal Gangani in the field of Kathak."></textarea>
+            </div>
+            <div class="section">
+                <h3>Q4: Notation Writing (Any 3/5, 15 Marks)</h3>
+                <p>Write bols in standard notation.</p>
+                <textarea placeholder="1. A Paran in Gajazampa."></textarea>
+                <textarea placeholder="2. A chakradar toda in Pancham savari."></textarea>
+                <textarea placeholder="3. A Bedam Tihai in Rastaal."></textarea>
+                <textarea placeholder="4. Ganesh Paran in Teentaal."></textarea>
+                <textarea placeholder="5. Farmaishi Chakradaar in Dhamar."></textarea>
+            </div>
+            <div class="section">
+                <h3>Q5: Detailed Answer (Any 1/2, 15 Marks)</h3>
+                <p>300-400 words.</p>
+                <textarea placeholder="1. Write an Essay on the topic - ' Raas and Kathak Nritya'."></textarea>
+                <textarea placeholder="2. Write detailed Life history and contribution in Kathak dance of Nataraj Gopikrishna."></textarea>
+            </div>
+            <button onclick="submitPaper(2)">Submit Paper 2 (For Objective Score)</button>
             <div id="score2"></div>
         </div>
     </div>
 
     <script>
         let timers = {1: null, 2: null};
-        let timeLeft = {1: 10800, 2: 10800}; // 3 hours in seconds
+        let timeLeft = {1: 10800, 2: 10800}; // 3 hours
 
         function startTimer(paper) {
             document.getElementById('content' + paper).classList.remove('hidden');
@@ -105,6 +531,7 @@
                     submitPaper(paper);
                 }
             }, 1000);
+            setupFeedback(paper);
         }
 
         function updateTimer(paper) {
@@ -114,16 +541,51 @@
             document.getElementById('timer' + paper).textContent = `Time: ${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
         }
 
+        function setupFeedback(paper) {
+            const radios = document.querySelectorAll(`#content${paper} input[type="radio"]`);
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const qDiv = e.target.closest('.question');
+                    const correct = qDiv.dataset.correct;
+                    const selected = e.target.value;
+                    const feedbackSpan = qDiv.querySelector('.feedback');
+                    if (selected === correct) {
+                        feedbackSpan.textContent = 'Correct!';
+                        feedbackSpan.className = 'feedback correct';
+                    } else {
+                        feedbackSpan.textContent = 'Incorrect!';
+                        feedbackSpan.className = 'feedback incorrect';
+                    }
+                    checkAttemptLimit(paper);
+                });
+            });
+        }
+
+        function checkAttemptLimit(paper) {
+            ['q1', 'q2'].forEach(sec => {
+                const selected = document.querySelectorAll(`#content${paper} [name^=p${paper}${sec}_]:checked`);
+                if (selected.length > 15) {
+                    alert('Attempt only 15 out of 17 for this section!');
+                    selected[selected.length - 1].checked = false;
+                }
+            });
+        }
+
         function submitPaper(paper) {
             clearInterval(timers[paper]);
-            // Simple objective scoring (expand selectors for full)
-            let correct = 0, total = 0;
-            // Example: Check Q1_1
-            if (document.querySelector('input[name="q1_1"]:checked')?.value === 'c') correct++;
-            total++;
-            // Add checks for all ~30 objectives per paper
-            let score = Math.round((correct / total) * 100);
-            document.getElementById('score' + paper).innerHTML = `<div class="score">Objective Score: ${correct}/${total} (${score}%) - Self-assess subjective!</div>`;
+            let correct = 0, attempted = 0;
+            ['q1', 'q2'].forEach(sec => {
+                for (let i = 1; i <= 17; i++) {
+                    const selected = document.querySelector(`#content${paper} input[name="p${paper}${sec}_${i}"]:checked`);
+                    if (selected) {
+                        attempted++;
+                        const qDiv = selected.closest('.question');
+                        if (selected.value === qDiv.dataset.correct) correct++;
+                    }
+                }
+            });
+            const score = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+            document.getElementById('score' + paper).innerHTML = `<div class="score">Objective Score: ${correct}/${attempted} (${score}%) - Self-assess subjective!</div>`;
             alert('Paper submitted. Review answers.');
         }
     </script>
